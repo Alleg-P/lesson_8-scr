@@ -3,12 +3,20 @@
 synonyms = {'Красивый': 'Прекрасный', 
             'Уродливый': 'Некрасивый', 
             'Сложный': 'Запутанный', 
-            'Простой': 'Легкий',
+            'Простой': 'Лёгкий',
             'Полезный':'Необходимый',
             'Качественный': 'Добротный'}
 
-word = input('Введите слово: ')
-if word in synonyms:
-    print("Синоним: ", synonyms[word])
-else:
-    print('Такого слова нет.')
+while True:
+    word = input('Введите слово: ')
+    if word in synonyms.keys():
+        print(f'Синоним Вашего слова {word}: ', synonyms[word])
+    elif word in synonyms.values():
+        antisynonyms = {value: key for key, value in synonyms.items()}
+        print(f'Синоним Вашего слова {word}:', antisynonyms[word])
+    else:
+        print('Такого слова в словаре нет.')
+    answer = input('Продолжить? Д/Н')
+    if answer == 'Н':
+        break
+        
